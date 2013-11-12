@@ -10,6 +10,11 @@ namespace Worker
 	{
 		static void Main(string[] args)
 		{
+			while (true)
+			{
+				Console.Write("Message: ");
+				Console.ReadLine();
+			}
 		}
 	}
 }
