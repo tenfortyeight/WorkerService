@@ -17,4 +17,6 @@ namespace Worker
 			}
 		}
 	}
+
+	public class
 }
