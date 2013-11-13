@@ -11,7 +11,12 @@ namespace Communicator
 		{
 			var connectionString = @"Server=.\SqlExpress;Database=SignalRPubSub;User Id=signalRtest;Password=Niss€11;Integrated Security=true";
 			GlobalHost.DependencyResolver.UseSqlServer(connectionString);
-			app.MapSignalR();
+
+			var cfg = new HubConfiguration()
+			{
+				EnableDetailedErrors = true
+			};
+			app.MapSignalR(cfg);
 		}
 	}
 }
