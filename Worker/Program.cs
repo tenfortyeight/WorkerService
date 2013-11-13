@@ -13,7 +13,8 @@ namespace Worker
 
 			conn.Start().Wait();
 			proxy.Invoke("Notify", "Console", conn.ConnectionId);
-			string message = null;
+
+			string message;
 			while ((message = Console.ReadLine()) != null)
 			{
 				proxy.Invoke("Send", name, message).Wait();

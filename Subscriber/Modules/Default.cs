@@ -16,12 +16,6 @@ namespace Subscriber.Modules
 				return Response.AsFile("/signalr/hubs");
 			};
 
-			//Get["/SignalR/jquery/{version}"] = parameters =>
-			//{
-			//	string path = string.Format("Scripts/jquery.signalR-{0}.js", parameters.version);
-
-			//	return Response.AsFile(path);
-			//};
 			Get["/jquery/signalr"] = parameters =>
 			{
 				string path = "Scripts/jquery.signalR-2.0.0.js";
