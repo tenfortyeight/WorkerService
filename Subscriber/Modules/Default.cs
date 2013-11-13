@@ -1,4 +1,6 @@
-﻿using Nancy;
+﻿using System.Linq;
+using Massive;
+using Nancy;
 
 namespace Subscriber.Modules
 {
@@ -8,8 +10,8 @@ namespace Subscriber.Modules
 		{
 			Get["/"] = parameters =>
 			{
-				var history = new HistoryRepository();
-				history.GetAll();
+				var historyRepository = new HistoryRepository();
+				var history = historyRepository.GetAll().ToList();
 
 				return View["Publisher"];
 			};
@@ -32,14 +34,6 @@ namespace Subscriber.Modules
 
 				return Response.AsFile(path);
 			};
-		}
-	}
-
-	public class HistoryRepository
-	{
-		public void GetAll()
-		{
-			
 		}
 	}
 }

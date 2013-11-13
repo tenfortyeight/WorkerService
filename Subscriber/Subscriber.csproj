@@ -100,6 +100,7 @@
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Massive.cs" />
     <Compile Include="Modules\Default.cs" />
+    <Compile Include="Modules\HistoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

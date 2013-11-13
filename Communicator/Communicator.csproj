@@ -96,6 +96,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Modules\Default.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
