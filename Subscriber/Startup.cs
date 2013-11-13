@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using System.CodeDom;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Owin;
 
@@ -9,8 +10,7 @@ namespace Subscriber
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			var connectionString = @"Server=.\SqlExpress;Database=SignalRPubSub;User Id=signalRtest;Password=Niss€11;Integrated Security=true";
-			GlobalHost.DependencyResolver.UseSqlServer(connectionString);
+			GlobalHost.DependencyResolver.UseSqlServer(ConnectionStringProvider.SignalRPubSub());
 
 			var cfg = new HubConfiguration()
 			{
