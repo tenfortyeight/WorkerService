@@ -13,28 +13,33 @@ namespace Subscriber.Modules
 		public IEnumerable<string> GetAll()
 		{
 			dynamic tbl = new MessageHistory();
-			var dataHistory = tbl.Find();
+			var dataHistory = tbl.All();
 
-			var history = Deserialize(dataHistory);
-			return history;
-		}
-
-		private IEnumerable<string> Deserialize(dynamic dataHistory)
-		{
+			//var history = Deserialize(dataHistory);
+			var history = new List<string>();
 			foreach (dynamic dataMessage in dataHistory)
 			{
+				//TODO: this part is faulty, needs fixing to deserialize correctly
 				using (var stream = new MemoryStream(dataMessage.Payload))
 				{
 					var reader = new BinaryReader(stream);
 					var encoding = new UTF8Encoding();
 					var bytes = reader.ReadInt32();
 					var readBytes = new ArraySegment<byte>(reader.ReadBytes(bytes));
-					
+
 					var message = encoding.GetString(readBytes.Array, readBytes.Offset, readBytes.Count);
-					yield return message;
+					history.Add(message);
+					//yield return message;
+
 				}
 			}
+			return history;
 		}
+
+		//private IEnumerable<string> Deserialize(dynamic dataHistory)
+		//{
+			
+		//}
 	}
 	
 	public class MessageHistory : DynamicModel
